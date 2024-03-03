@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Page</title>
+</head>
+<body>
+<h1>Search Page</h1>
+<input type="text" id="searchByKey" placeholder="elastic根据关键字查询">
+<button onclick="search()">Search</button>
+<div id="results"></div>
+
+<h2>Upload Data</h2>
+<button onclick="uploadData()">Upload Data to Elasticsearch</button>
+
+<script>
+    function search() {
+        var searchTerm = document.getElementById('searchByKey').value;
+        fetch('http://localhost:8080/searchByKey?term=' + searchTerm)
+            .then(response => response.json())
+            .then(data => {
+                // Process search results and display them in the results div
+                document.getElementById('results').innerText = JSON.stringify(data);
+            });
+    }
+
+    function uploadData() {
+        fetch('http://localhost:8080/push')
+            .then(response => {
+                if (response.ok) {
+                    alert('Data uploaded successfully!');
+                } else {
+                    alert('Failed to upload data!');
+                }
+            });
+    }
+</script>
+</body>
+</html>

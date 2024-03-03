@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--这个就是他的默认实现类-->
+<mapper namespace="com.nihao.elastic_demo.dao.BiddingApplicationMapper">
+<!--    映射的具体关系-->
+    <resultMap id="BaseResultMap" type="com.nihao.elastic_demo.entity.Bidding_application">
+        <id column="id" property="id"/>
+        <result column="sid" property="sid"/>
+        <result column="purid" property="purid"/>
+        <result column="data" property="data"/>
+        <result column="product_name" property="product_name"/>
+        <result column="realy_price" property="realy_price"/>
+        <result column="prescribe" property="prescribe"/>
+        <result column="tag" property="tag"/>
+    </resultMap>
+
+<!--    <select id="findAll" resultMap="BaseResultMap">-->
+<!--        SELECT * FROM bidding_application-->
+<!--    </select>-->
+
+</mapper>
